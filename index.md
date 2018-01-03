@@ -2,15 +2,15 @@
 
 Taxify simplifies tax time for taxpayers and their CPAs. Taxpayers upload and manage documents in their taxpayer Taxify account. Taxpayers can authorize their CPA to access their Taxify account, giving the CPA the ability to manage the taxpayer's documents. Taxpayers and CPAs can upload, delete, annotate, and categorize documents that are stored in taxpayer accounts to which the user has access.
 
-## About the Taxify Documents API
+### About the Taxify Documents API
 
 Taxify uses a RESTful API with action-oriented HTTP verbs (GET, POST, PUT, DELETE) and built-in HTTP features for things like authentication and authorization. All responses include an HTTP status code, header, and response body in JSON or XML.
 
-### Errors
+###### Errors
 
 Error responses include the HTTP error code and a message describing the reason for the error. Error messages vary depending on the endpoint.
 
-### Base URL
+###### Base URL
 
 `http://api.taxify.com`
 
@@ -20,21 +20,21 @@ Here's a brief summary of what you can do with these endpoints.
 
 Purpose                                                                 | Description
 ----------------------------------------------------------------------- | --------------------------------------------------------------------------
-[Get a document](#get)                                                  | Retrieves a single document for the specified user.
-[Get a document's annotations](#Get a document's annotations)           | Retrieves the annotations associated with the specified document.
-[Create annotations for a document](#Create annotations for a document) | Creates an annotation on the specified document.
-[Change a document's category](#Change a document's category)           | Changes the category and subcategory (optional) of the specified document.
-[Delete a document](#Delete a document)                                 | Deletes the specified document.
+[Get a document](#Get-a-document)                                   | Retrieves a single document for the specified user.
+[Get document annotations](#Get-document-annotations)           | Retrieves the annotations associated with the specified document.
+[Create annotations for a document](#Create-document-annotations) | Creates an annotation on the specified document.
+[Change a document's category](#Change-document-category)           | Changes the category and subcategory (optional) of the specified document.
+[Delete a document](#Delete-a-document)                                 | Deletes the specified document.
 
-## Get a document (#get)
+### Get a document <a name="get"/>
 
 Retrieves a single document for the specified user.
 
-## URL
+### URL
 
 `**GET** /api/v1/users/**{userid}**/documents/getsingledocument`
 
-## Parameters
+### Parameters
 
 Name         | Type    | Required? | Description
 ------------ | ------- | --------- | -----------------------------------------------------
@@ -42,14 +42,14 @@ Name         | Type    | Required? | Description
 `documentid` | integer | required  | The document ID.
 `download`   | boolean | optional  | If `true`, download is initiated. Default is `false`.
 
-## Request
+### Request
 
 ```curl
 cURL -X GET "https://api.taxify.com/api/v1/users/3659/documents/getsingledocument?id=28404
 -H "Authorization: Bearer token_here"
 ```
 
-## Response
+### Response
 
 This endpint returs JSON structured like this:
 
@@ -67,29 +67,29 @@ This endpint returs JSON structured like this:
 }
 ```
 
-# Get a document's annotations
+# Get document annotations
 
 Retrieves the annotations associated with the specified document.
 
-## URL
+### URL
 
 `**GET** /api/v1/users/**{userid}**/documents/**{documentid}**/annotations`
 
-## Parameters
+### Parameters
 
 Name         | Type    | Required? | Description
 ------------ | ------- | --------- | --------------------------------
 `userid`     | integer | required  | The associated taxpayer user ID.
 `documentid` | integer | required  | The document ID.
 
-## Request
+### Request
 
 ```curl
 cURL -X GET "https://api.taxify.com/api/v1/users/3659/documents/28404/annotations
 -H "Authorization: Bearer token_here"
 ```
 
-## Response
+### Response
 
 This endpint returs XML structured like this:
 
@@ -112,15 +112,15 @@ This endpint returs XML structured like this:
 </xfdf>
 ```
 
-# Create an annotation on a document
+# Create document annotations
 
 Creates an annotation on the specified document.
 
-## URL
+### URL
 
 `**POST** /api/v1/users/**{userid}**/documents/**{documentid}**/annotations`
 
-## Parameters
+### Parameters
 
 Name         | Type    | Required? | Description
 ------------ | ------- | --------- | ------------------------------------------
@@ -128,7 +128,7 @@ Name         | Type    | Required? | Description
 `documentid` | integer | required  | The document ID.
 `data`       | string  | required  | Formatting and content for the annotation.
 
-## Request
+### Request
 
 ```curl
 cURL -X POST "https://api.taxify.com/api/v1/users/3659/documents/28404/annotations
@@ -138,7 +138,7 @@ cURL -X POST "https://api.taxify.com/api/v1/users/3659/documents/28404/annotatio
 -d "data: font-size:10.0pt;textalign:left"
 ```
 
-### Request Body
+###### Request Body
 
 The request body must include a string describing RTF formatting, which will be used to style the annotations. Valid styling includes:
 
@@ -148,22 +148,22 @@ The request body must include a string describing RTF formatting, which will be 
 - `font-weight`
 - `font-style`
 
-## Responses
+### Responses
 
 This endpoint returs JSON structured like this:
 
 - Succesful: `{ "httpStatusCode": 200 }`
 - Failed (document doesn't exist): `{ "httpStatusCode": 404 }`
 
-# Change a document's category and subcategory
+# Change document category
 
 Changes the category and subcategory (optional) of the specified document.
 
-## URL
+### URL
 
 `**PUT** /api/v1/users/**{userid}**/documents/**{documentid}**/changecategory`
 
-## Parameters
+### Parameters
 
 Name           | Type    | Required? | Description
 -------------- | ------- | --------- | --------------------------------
@@ -172,7 +172,7 @@ Name           | Type    | Required? | Description
 `categoryid`   | integer | required  | The category ID.
 `suggestionid` | integer | optional  | The subcategory ID.
 
-## Request
+### Request
 
 ```curl
 cURL -X PUT "https://api.taxify.com/api/v1/users/3659/documents/28404/changecategory?categoryid=11
@@ -181,7 +181,7 @@ cURL -X PUT "https://api.taxify.com/api/v1/users/3659/documents/28404/changecate
 -d "categoryid: 11"
 ```
 
-## Response
+### Response
 
 On success, this endpoint returs JSON structured like this:
 
@@ -197,18 +197,18 @@ On success, this endpoint returs JSON structured like this:
 
 Deletes the specified document.
 
-## URL
+### URL
 
 `**DELETE** /api/v1/users/**{userid}**/documents/**{documentid}**/delete`
 
-## Parameters
+### Parameters
 
 Name       | Type    | Required? | Description
 ---------- | ------- | --------- | --------------------------------
 userid     | integer | required  | The associated taxpayer user ID.
 documentid | integer | required  | The document ID.
 
-## Request
+### Request
 
 ```curl
 cURL -X DELETE "https://api.taxify.com/api/v1/users/3659/documents/28404/delete
@@ -216,7 +216,7 @@ cURL -X DELETE "https://api.taxify.com/api/v1/users/3659/documents/28404/delete
 -H "Accept: Application/json"
 ```
 
-## Response
+### Response
 
 On success, this endpoint returs JSON structured like this:
 
