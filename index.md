@@ -20,11 +20,11 @@ Here's a brief summary of what you can do with these endpoints.
 
 Purpose                                                                 | Description
 ----------------------------------------------------------------------- | --------------------------------------------------------------------------
-[Get a document](#Get-a-document)                                   | Retrieves a single document for the specified user.
-[Get document annotations](#Get-document-annotations)           | Retrieves the annotations associated with the specified document.
-[Create annotations for a document](#Create-document-annotations) | Creates an annotation on the specified document.
-[Change a document's category](#Change-document-category)           | Changes the category and subcategory (optional) of the specified document.
-[Delete a document](#Delete-a-document)                                 | Deletes the specified document.
+[Get a document](#get-a-document)                                   | Retrieves a single document for the specified user.
+[Get document annotations](#get-document-annotations)           | Retrieves the annotations associated with the specified document.
+[Create annotations for a document](#create-document-annotations) | Creates an annotation on the specified document.
+[Change a document's category](#change-document-category)           | Changes the category and subcategory (optional) of the specified document.
+[Delete a document](#delete-a-document)                                 | Deletes the specified document.
 
 ### Get a document <a name="get"/>
 
