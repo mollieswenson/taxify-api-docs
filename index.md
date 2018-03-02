@@ -1,6 +1,6 @@
 # About Taxify Documents
 
-Taxify simplifies tax time for taxpayers and their tax professional. Taxpayers upload and manage documents in their taxpayer Taxify account, and have the option to authorize their tax professional to access their Taxify account, giving them the ability to manage the taxpayer's documents. Taxpayers and authorized tax professionals can upload, delete, annotate, and categorize documents that are stored in taxpayer's Taxify accounts.
+Taxify simplifies tax time for taxpayers and their tax professional. Taxpayers upload and manage documents in their Taxify account and have the option to authorize their tax professional to access their Taxify account, giving the tax professional the ability to manage the taxpayer's documents. Taxpayers and authorized tax professionals can upload, delete, annotate, and categorize documents that are stored in taxpayer's Taxify accounts.
 
 ### About the Taxify Documents API
 
