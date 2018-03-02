@@ -1,6 +1,6 @@
 # About Taxify Documents
 
-Taxify simplifies tax time for taxpayers and their CPAs. Taxpayers upload and manage documents in their taxpayer Taxify account. Taxpayers can authorize their CPA to access their Taxify account, giving the CPA the ability to manage the taxpayer's documents. Taxpayers and CPAs can upload, delete, annotate, and categorize documents that are stored in taxpayer accounts to which the user has access.
+Taxify simplifies tax time for taxpayers and their tax professional. Taxpayers upload and manage documents in their taxpayer Taxify account, and have the option to authorize their tax professional to access their Taxify account, giving them the ability to manage the taxpayer's documents. Taxpayers and authorized tax professionals can upload, delete, annotate, and categorize documents that are stored in taxpayer's Taxify accounts.
 
 ### About the Taxify Documents API
 
@@ -20,7 +20,7 @@ Here's a brief summary of what you can do with these endpoints.
 
 Purpose                                                                 | Description
 ----------------------------------------------------------------------- | --------------------------------------------------------------------------
-[Get a document](#get-a-document)                                   | Retrieves a single document for the specified user.
+[Get a document](#get)                                   | Retrieves a single document for the specified user.
 [Get document annotations](#get-document-annotations)           | Retrieves the annotations associated with the specified document.
 [Create annotations for a document](#create-document-annotations) | Creates an annotation on the specified document.
 [Change a document's category](#change-document-category)           | Changes the category and subcategory (optional) of the specified document.
@@ -32,7 +32,7 @@ Retrieves a single document for the specified user.
 
 ### URL
 
-`**GET** /api/v1/users/**{userid}**/documents/getsingledocument`
+`GET /api/v1/users/{userid}/documents/getsingledocument`
 
 ### Parameters
 
@@ -73,7 +73,7 @@ Retrieves the annotations associated with the specified document.
 
 ### URL
 
-`**GET** /api/v1/users/**{userid}**/documents/**{documentid}**/annotations`
+`GET /api/v1/users/{userid}/documents/{documentid}/annotations`
 
 ### Parameters
 
@@ -118,7 +118,7 @@ Creates an annotation on the specified document.
 
 ### URL
 
-`**POST** /api/v1/users/**{userid}**/documents/**{documentid}**/annotations`
+`POST /api/v1/users/{userid}/documents/{documentid}/annotations`
 
 ### Parameters
 
@@ -161,7 +161,7 @@ Changes the category and subcategory (optional) of the specified document.
 
 ### URL
 
-`**PUT** /api/v1/users/**{userid}**/documents/**{documentid}**/changecategory`
+`PUT /api/v1/users/{userid}/documents/{documentid}/changecategory`
 
 ### Parameters
 
@@ -199,7 +199,7 @@ Deletes the specified document.
 
 ### URL
 
-`**DELETE** /api/v1/users/**{userid}**/documents/**{documentid}**/delete`
+`DELETE /api/v1/users/{userid}/documents/{documentid}/delete`
 
 ### Parameters
 
